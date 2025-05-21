@@ -1,0 +1,1 @@
+from .authentication_views import login_page, register_page

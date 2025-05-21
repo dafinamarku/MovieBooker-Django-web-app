@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+
+{% block content %}
+      <main style="padding-top: 40px;">
+        <div class="bg-image-container">
+            <div class="modal modal-static d-block" tabindex="-1" id="alwaysVisibleModal">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-light bg-dark">
+                  <div class="modal-header">
+                    <h5 class="modal-title customRed fw-bolder">LOGIN</h5>
+                  </div>
+                  <div class="modal-body">
+                     <form class="mx-auto" method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        {% if messages %}
+                        <div class="alert alert-primary" role="alert">
+                            {% for message in messages %}
+                            {{ message }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label for="inputEmail" class="col-form-label">Username</label>
+                            <input type="text" class="form-control bg-dark text-light white-outline" name="username" id="inputEmail" aria-describedby="emailHelp" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputPassword" class="col-form-label">Password</label>
+                            <input type="password" name="password" class="form-control bg-dark text-light white-outline" id="inputPassword" required>
+                        </div>
+
+                        <p class="col-form-label">Don't have an account?  <a class="customRed fw-bold" href="/register/">Register</a> </p>
+
+                         <button type="submit" class="btn btn-danger" style="float: inline-end;">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+
+{% endblock %}
