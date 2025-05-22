@@ -1,0 +1,225 @@
+[
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$OpsbdQGoAqoxyq2WfmQ17Q$tbnQk19nIkDBPZYMQ5Dm+mbxrwq7iwmCZUBETxeoD4U=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "admin",
+    "first_name": "Admin",
+    "last_name": "Test",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-05-22T10:26:35.678Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Client",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Admin",
+    "permissions": []
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 1,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Action"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 2,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Comedy"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 3,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Thriller"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 4,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Romance"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 5,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Adventure"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 6,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Drama"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 7,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Fantasy"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 8,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Horror"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 9,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Science Fiction"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 10,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Crime"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 11,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Documentary"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 12,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Animation"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 13,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Musical"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 14,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Biography"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 15,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "History"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 16,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Sport"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 17,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Political"
+  }
+}
+]
