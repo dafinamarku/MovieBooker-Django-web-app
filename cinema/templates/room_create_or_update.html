@@ -1,0 +1,30 @@
+{% extends "notification_master.html" %}
+
+{% block extended_content %}
+<div class="container pt-2 pb-5 text-light">
+    <h2 class="mb-4">{{ is_edit|yesno:"UPDATE ROOM,ADD NEW ROOM" }}</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label">
+                    {{ field.label }}
+                </label>
+                <div class="col-sm-4">
+                    {{ field }}
+                </div>
+                <div class="col-sm-4">
+                    {% if field.errors %}
+                        <div class="customRed small">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="pt-4">
+            <button class="btn btn-danger me-2" type="submit" name="save_room">SAVE</button>
+            <a href="{% url 'room_list' %}" class="btn btn-outline-light">RETURN TO ROOM LIST</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

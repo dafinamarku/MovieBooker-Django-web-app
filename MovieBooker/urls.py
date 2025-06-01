@@ -20,13 +20,32 @@ from authentication.views import *
 from django.conf import settings   # Application settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # Static files serving
 
+from authentication.views.authentication_views import no_permission
+from cinema.views import *
 from movies.views import *
 
 # Define URL patterns
 urlpatterns = [
+    path('', default_redirect, name='default'),
     path('login/', login_page, name='login_page'),
+    path('logout/', logout_view, name='logout'),
+    path('profile/', user_profile, name='user_profile'),
     path('register/', register_page, name='register'),
-    path('movies/create/', create_movie, name='add_movie'),
+    path('movies/add/', create_or_edit_movie, name='create_movie'),
+    path('movies/edit/<int:pk>/', create_or_edit_movie, name='edit_movie'),
+    path('movies/all', movie_list, name='movie_list'),
+    path('movies/display/<int:movie_id>/', movie_display, name='movie_display'),
+    path('rooms/add/', room_create_or_update, name='room_add'),
+    path('rooms/edit/<int:pk>/', room_create_or_update, name='room_edit'),
+    path('rooms/display/<int:room_id>/', room_display, name='room_display'),
+    path('rooms/seats/<int:room_id>/', manage_seats, name='manage_seats'),
+    path('rooms/all/', room_list, name='room_list'),
+    path('screenings/add/<int:movie_id>/', screening_add, name='screening_add'),
+    path('screenings/available-rooms/', get_available_rooms, name='available_rooms'),
+    path('screenings/delete/<int:screening_id>/', screening_delete, name='screening_delete'),
+    path('ticket/book/<int:screening_id>/', ticket_book_view, name='ticket_book'),
+    path('no-permission/', no_permission, name='no_permission'),
+    path('error/', error_page, name='error_page'),
 ]
 
 # Serve media files if DEBUG is True (development mode)

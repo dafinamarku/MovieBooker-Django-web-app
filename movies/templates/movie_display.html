@@ -1,0 +1,109 @@
+{% extends "notification_master.html" %}
+
+{% block extended_content %}
+<div class="container pt-2 pb-5 text-light">
+     <div class="row">
+        <div class="col-md-4 pb-4">
+            <img src="{{ movie.photo.url }}" alt="{{ movie.title }}" class="img-fluid" style="object-fit: cover;">
+        </div>
+        <div class="col-md-8 custom-gray">
+            <h2>{{ movie.title }}</h2>
+            <p><strong>Genres:</strong>
+                {% for genre in movie.genres.all %}
+                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    No genres specified.
+                {% endfor %}
+            </p>
+            <p><strong>Description:</strong> {{ movie.description }}</p>
+            <p><strong>Release Date:</strong> {{ movie.release_date|date:"d.m.Y h:i A" }}</p>
+            <p><strong>Duration:</strong> {{ movie.duration_in_minutes }} minutes</p>
+            <p><strong>Age Limit:</strong> {{ movie.age_limit }}</p>
+            <hr class="border-light m-0">
+            <div class="pt-4">
+                {% if is_user_admin %}
+                    <a href="{% url 'screening_add' movie.id %}" class="btn btn-danger me-2">
+                      <i class="bi bi-plus-circle me-1"></i> ADD SCREENING
+                    </a>
+                    <a href="{% url 'edit_movie' movie.id %}" class="btn btn-danger">
+                      EDIT MOVIE
+                    </a>
+                {% endif %}
+
+            </div>
+            <div class="row pt-4">
+                <h3>Screenings</h3>
+                {% if screenings %}
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Room</th>
+                                <th scope="col">Start time</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            {% for screening in screenings %}
+                                <tr>
+                                    <th scope="row">{{ screening.room.name }}</th>
+                                    <td>{{ screening.start_time|date:"d.m.Y h:i A" }}</td>
+                                    {% if is_user_client %}
+                                        <td>
+                                            <a href="{% url 'ticket_book' screening.id %}" title="Book a ticket."><i class="bi bi-ticket-perforated fs-5"></i></a>
+                                        </td>
+                                    {% endif %}
+                                    {% if is_user_admin %}
+                                        <td>
+                                            <a href="{% url 'ticket_book' screening.id %}" title="See bookings." class="me-4"><i class="bi bi-ticket-perforated fs-5"></i></a>
+                                            <a href="{% url 'screening_delete' screening.id %}" class="delete-screening-link" title="Delete screening" data-id="{{ screening.id }}">
+                                              <i class="bi bi-trash3 fs-5 text-danger"></i>
+                                            </a>
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p style="color: #bfbaba;"><i>There are no planned screenings for this movie.</i></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% if is_user_admin %}
+    <!-- Delete screening confirmation modal-->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmDeleteLabel">Confirm Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this screening?
+          </div>
+          <div class="modal-footer">
+            <form id="deleteForm" method="POST">
+                {% csrf_token %}
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
+                <button type="submit" class="btn btn-danger">DELETE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endif %}
+<script>
+  document.querySelectorAll('.delete-screening-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const url = this.getAttribute('href');
+      document.getElementById('deleteForm').setAttribute('action', url);
+      const modal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+      modal.show();
+    });
+  });
+</script>
+
+{% endblock %}

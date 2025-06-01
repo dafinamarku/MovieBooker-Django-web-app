@@ -1,0 +1,35 @@
+{% extends "notification_master.html" %}
+
+{% block extended_content %}
+  <div class="container pt-2 pb-5 text-light">
+    <h2>Your Profile</h2>
+    <p><strong>Full Name: </strong>{{ user.first_name }} {{ user.last_name }}</p>
+    <p><strong>Username: </strong>{{ user.username }}</p>
+
+    {% if is_user_client %}
+      <h4>Your Tickets</h4>
+      <hr class="border-light mb-4">
+      {% if grouped_tickets %}
+        {% for screening, tickets in grouped_tickets.items %}
+          <div class="card mb-4 bg-dark text-light">
+            <div class="card-header">
+              🎬 <strong>{{ screening.movie.title }}</strong> |
+              Room: {{ screening.room.name }} |
+              🕒 {{ screening.start_time|date:"d.m.Y h:i A" }}
+            </div>
+            <div class="card-body">
+              <p><strong>Booked Seats:</strong></p>
+              <ul class="list-inline">
+                {% for ticket in tickets %}
+                  <li class="list-inline-item badge bg-danger">{{ ticket.seat }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>You have not booked any tickets yet.</p>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endblock %}

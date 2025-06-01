@@ -1,0 +1,34 @@
+{% extends "notification_master.html" %}
+
+{% block extended_content %}
+<div class="container pt-3 pb-5 text-light">
+    <h2>MANAGE SEATS FOR ROOM: <strong>{{ room.name }}</strong></h2>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mt-4">
+            {% for row_letter, numbers in rows.items %}
+                <div class="mb-3 d-flex align-items-center">
+                    <div class="me-3 fw-bold" style="width: 30px;">{{ row_letter }}</div>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for num in numbers %}
+                            <div class="bg-light rounded px-3 py-1 text-center text-black">{{ num }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="ms-3">
+                        <button title="Add seat." name="add_seat_{{ row_letter }}" class="btn btn-success btn-sm me-1" type="submit"><i class="bi bi-plus"></i></button>
+                        <button title="Remove seat." name="remove_seat_{{ row_letter }}" class="btn btn-danger btn-sm" type="submit"><i class="bi bi-dash"></i></button>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No seats yet. Click "ADD ROW" to begin.</p>
+            {% endfor %}
+        </div>
+
+        <div class="pt-4">
+            <button name="add_row" class="btn btn-danger me-2">ADD ROW</button>
+            <a href="{% url 'room_display' room.id %}" class="btn btn-outline-light">BACK TO ROOM</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

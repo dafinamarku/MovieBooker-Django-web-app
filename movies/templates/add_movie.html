@@ -1,21 +1,71 @@
-{% extends "master.html" %}
+{% extends "notification_master.html" %}
 
-{% block content %}
-<div class="container mt-5 bg-dark text-light">
-    <h2 class="mb-4">ADD NEW MOVIE</h2>
-    <form method="POST" enctype="multipart/form-data" class="bg-secondary p-4 rounded">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="mb-3">
-                <label class="form-label">{{ field.label }}</label>
-                {{ field }}
-                {% if field.errors %}
-                    <div class="text-danger">{{ field.errors }}</div>
-                {% endif %}
-            </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-light">Submit</button>
-    </form>
+{% block extended_content %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.multiselect-dropdown');
+    elements.forEach(function (el) {
+      new Choices(el, {
+        removeItemButton: true,
+        shouldSort: false,
+        placeholderValue: 'Select genres',
+        noResultsText: 'No genres found',
+        noChoicesText: 'No genres to choose',
+      });
+    });
+  });
+</script>
+<style>
+  .choices__item,
+  .choices__list--dropdown .choices__item {
+    color: #000 !important;
+  }
+  .choices__inner {
+    color: #000 !important;
+  }
+  .choices__inner .choices__item--selectable {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none;
+  }
+
+  .choices__inner .choices__item--selectable .choices__button {
+    color: #fff !important;
+    opacity: 0.8;
+  }
+
+  .choices__inner .choices__item--selectable .choices__button:hover {
+    color: #ff4d4d !important;
+  }
+</style>
+
+
+<div class="text-light">
+    <div class="container pt-2 pb-5">
+        <h2 class="mb-4">{{ is_edit|yesno:"UPDATE MOVIE,ADD NEW MOVIE" }}</h2>
+
+        <form method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="mb-4 row">
+                    <label class="col-sm-2 col-form-label">
+                        {{ field.label }}
+                    </label>
+                    <div class="col-sm-6">
+                        {{ field }}
+                    </div>
+                    <div class="col-sm-4">
+                        {% if field.errors %}
+                            <div class="customRed small">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            <br>
+            <button type="submit" class="btn btn-danger me-2">SAVE</button>
+            <a href="{% url 'movie_list' %}" class="btn btn-outline-light">RETURN TO MOVIES</a>
+        </form>
+    </div>
+
 </div>
-</body>
 {% endblock %}

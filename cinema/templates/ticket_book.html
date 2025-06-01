@@ -1,0 +1,93 @@
+{% extends "notification_master.html" %}
+
+{% block extended_content %}
+  <div class="container pt-2 pb-5 text-light">
+    {% if is_user_client %}
+      <h2 class="mb-4">BOOK TICKETS FOR "{{ screening.movie.title }}"</h2>
+    {% else %}
+      <h2 class="mb-4">BOOKINGS FOR "{{ screening.movie.title }}"</h2>
+    {% endif %}
+    <p><strong>Room:</strong> {{ screening.room.name }}</p>
+    <p><strong>Start time:</strong> {{ screening.start_time|date:"d.m.Y h:i A" }}</p>
+    <p><strong>End time:</strong> {{ screening.end_time|date:"d.m.Y h:i A" }}</p>
+    {% if is_user_client %}
+      <p class="mb-4 customRed"><strong>Please select the seats</strong></p>
+    {% else %}
+      <br>
+    {% endif %}
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% for row_letter, seats in rows.items %}
+            <div class="mb-3 d-flex align-items-center">
+                <div class="me-3 fw-bold" style="width: 30px;">{{ row_letter }}</div>
+                <div class="d-flex flex-wrap gap-2">
+                    {% for seat in seats %}
+                        {% if seat.is_taken %}
+                            <div class="bg-danger text-white rounded px-3 py-1 text-center" style="min-width: 30px;">
+                                {{ seat.number }}
+                            </div>
+                        {% elif is_user_client %}
+                            <label class="seat-label bg-light rounded px-3 py-1 text-center text-black"
+                                   style="cursor:pointer; min-width: 30px;">
+                                <input type="checkbox" name="seats" value="{{ seat.id }}" class="d-none seat-checkbox">
+                                {{ seat.number }}
+                            </label>
+                        {% else %}
+                            <label class="seat-label bg-light rounded px-3 py-1 text-center text-black" style="min-width: 30px;">
+                                {{ seat.number }}
+                            </label>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <p>No seats yet.</p>
+        {% endfor %}
+        <hr class="border-light m-0">
+        <div class="mb-3 mt-3 d-flex align-items-center">
+            <div class="me-3 fw-bold" style="width: 30px;"></div>
+            <div class="d-flex flex-wrap gap-2">
+                <div class="bg-white text-black rounded px-3 py-1 text-center" style="min-width: 30px;">1</div>
+                Available seat
+                <div class="bg-danger text-white rounded px-3 py-1 text-center ms-2" style="min-width: 30px;">2</div>
+                Booked seat
+                <div class="bg-success text-white rounded px-3 py-1 text-center ms-2" style="min-width: 30px;">3</div>
+                Selected seat
+            </div>
+        </div>
+        <div class="pt-4">
+            {% if is_user_client %}
+                <button type="submit" class="btn btn-danger me-2" disabled id="submit-btn">Book Seats</button>
+            {% endif %}
+            <a href="{% url 'movie_display' screening.movie.id %}" class="btn btn-outline-light">RETURN TO MOVIE</a>
+        </div>
+    </form>
+
+
+
+  </div>
+ <script>
+    const checkboxes = document.querySelectorAll('.seat-checkbox');
+    const submitBtn = document.getElementById('submit-btn');
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            const label = cb.closest('.seat-label');
+
+            // change selected/unselected seats background color
+            if (cb.checked) {
+                label.classList.remove('bg-light', 'text-black');
+                label.classList.add('bg-success', 'text-white');
+            } else {
+                label.classList.remove('bg-success', 'text-white');
+                label.classList.add('bg-light', 'text-black');
+            }
+
+            // Enable or disable submit button
+            const anyChecked = Array.from(checkboxes).some(c => c.checked);
+            submitBtn.disabled = !anyChecked;
+        });
+    });
+</script>
+{% endblock %}

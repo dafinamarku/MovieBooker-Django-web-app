@@ -12,7 +12,7 @@ class Movie(Entity):
     photo = models.ImageField()
     release_date = models.DateTimeField(default=timezone.now)
     duration_in_minutes = models.PositiveIntegerField()
-    age_limit = models.PositiveIntegerField(null=True)
+    age_limit = models.PositiveIntegerField(null=True, blank=True)
 
 
     def __str__(self):

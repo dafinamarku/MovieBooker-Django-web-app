@@ -1,0 +1,90 @@
+{% extends "notification_master.html" %}
+
+{% block extended_content %}
+<div class="container pt-2 pb-5 text-light">
+    <h2 class="mb-4">ADD SCREENING FOR "{{ movie.title }}"</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+       {{ form.movie }}  {# hidden field #}
+       {% for field in form %}
+          {% if field.name != "movie" %}
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label">
+                    {{ field.label }}
+                </label>
+                <div class="col-sm-4">
+                    {% if field.name == 'room' %}
+                        <select id="id_room" name="room" class="form-select">
+                            <option value="">Select start time first</option>
+                        </select>
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                </div>
+                <div class="col-sm-4">
+                    {% if field.errors %}
+                        <div class="customRed small">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+          {% endif %}
+      {% endfor %}
+      <div class="pt-4">
+          <button class="btn btn-danger me-2" type="submit" id="submit_button">SAVE</button>
+          <a href="{% url 'movie_display' movie.id %}" class="btn btn-outline-light">RETURN TO MOVIE</a>
+      </div>
+    </form>
+</div>
+
+
+
+<script>
+    const startInput = document.querySelector('#id_start_time');
+    const endInput = document.querySelector('#id_end_time');
+    const submitButton = document.querySelector('#submit_button');
+    const roomSelect = document.querySelector('#id_room');
+    const movieId = "{{ movie.id }}";
+    const durationMinutes = {{ movie.duration_in_minutes }};
+
+    function formatDateTimeLocal(date) {
+        const pad = (n) => n.toString().padStart(2, '0');
+        const yyyy = date.getFullYear();
+        const mm = pad(date.getMonth() + 1);
+        const dd = pad(date.getDate());
+        const hh = pad(date.getHours());
+        const min = pad(date.getMinutes());
+        return `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+    }
+
+    startInput.addEventListener('change', function () {
+        const startTime = startInput.value;
+        if (!startTime) return;
+
+        const startDate = new Date(startTime);
+        const endDate = new Date(startDate.getTime() + durationMinutes * 60000);
+        endInput.value = formatDateTimeLocal(endDate);
+
+        fetch(`/screenings/available-rooms/?start_time=${startTime}&movie_id=${movieId}`)
+            .then(res => res.json())
+            .then(data => {
+                roomSelect.innerHTML = '';
+
+                if (data.rooms.length > 0) {
+                    data.rooms.forEach(room => {
+                        const opt = document.createElement('option');
+                        opt.value = room.id;
+                        opt.textContent = room.name;
+                        roomSelect.appendChild(opt);
+                    });
+                    submitButton.disabled = false;
+                } else {
+                    const opt = document.createElement('option');
+                    opt.textContent = 'No rooms available for the selected time';
+                    opt.selected = true;
+                    roomSelect.appendChild(opt);
+                    submitButton.disabled = true;
+                }
+            });
+    });
+</script>
+{% endblock %}

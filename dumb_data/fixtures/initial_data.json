@@ -1,0 +1,667 @@
+[
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$OpsbdQGoAqoxyq2WfmQ17Q$tbnQk19nIkDBPZYMQ5Dm+mbxrwq7iwmCZUBETxeoD4U=",
+    "last_login": "2025-06-01T12:38:15.007Z",
+    "is_superuser": false,
+    "username": "admin",
+    "first_name": "Admin",
+    "last_name": "Test",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-05-22T10:26:35.678Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$lmOfPGUaH5qcyekpMwhQtV$F8uMhSqkByMayeb6Zy/F8k+w2TsApQ3oQZcHceMIIhE=",
+    "last_login": "2025-06-01T12:40:45.206Z",
+    "is_superuser": false,
+    "username": "dafina",
+    "first_name": "Dafina",
+    "last_name": "Marku",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-05-23T11:48:31.475Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Client",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Admin",
+    "permissions": []
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 1,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Action"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 2,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Comedy"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 3,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Thriller"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 4,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Romance"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 5,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Adventure"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 6,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Drama"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 7,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Fantasy"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 8,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Horror"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 9,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Science Fiction"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 10,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Crime"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 11,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Documentary"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 12,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Animation"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 13,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Musical"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 14,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Biography"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 15,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "History"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 16,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Sport"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 17,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-22T10:26:35.678Z",
+    "changed_by": null,
+    "changed_on": "2025-05-22T10:26:35.678Z",
+    "name": "Political"
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 1,
+  "fields": {
+    "created_by": null,
+    "created_on": "2025-05-23T13:50:17.294Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-23T13:50:17.294Z",
+    "title": "Ocean's 8",
+    "description": "After serving her prison sentence, Debbie Ocean, the younger sister of Danny Ocean, assembles a team of seven skilled women in an attempt to steal a diamond necklace worth USD 150 million.",
+    "photo": "oceans8.jpg",
+    "release_date": "2025-05-22T15:30:17Z",
+    "duration_in_minutes": 111,
+    "age_limit": null,
+    "genres": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 5,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-24T10:28:44.494Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-24T10:28:44.494Z",
+    "title": "Challengers",
+    "description": "Tashi, a tennis player turned coach, has transformed her husband from a mediocre player into a world-famous grand slam champion. To jolt him out of his recent losing streak, she makes him play a challenger event -- close to the lowest level of tournament on the pro tour. Tensions soon run high when he finds himself standing across the net from the once-promising, now burnt-out Patrick, his former best friend and Tashi's former boyfriend.",
+    "photo": "challengers.jpg",
+    "release_date": "2025-05-25T10:25:30Z",
+    "duration_in_minutes": 131,
+    "age_limit": null,
+    "genres": [
+      4,
+      16
+    ]
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 6,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-24T10:30:47.129Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-24T10:30:47.129Z",
+    "title": "The Age of Adaline",
+    "description": "Adaline, who has been 29 for eight decades, meets and madly falls in love with Ellis. She is forced to make a life-altering decision after a meeting with his parents threatens to expose her secret.",
+    "photo": "ageOfAdaline.jpg",
+    "release_date": "2025-05-25T10:29:22Z",
+    "duration_in_minutes": 112,
+    "age_limit": null,
+    "genres": [
+      4,
+      7
+    ]
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 7,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-24T10:32:19.651Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-24T10:32:19.651Z",
+    "title": "The Spy Who Dumped Me",
+    "description": "After getting dumped by her boyfriend, a woman discovers that her ex-lover was a spy. Soon, she and her best friend find themselves entangled in an international conspiracy.",
+    "photo": "thespy.jpg",
+    "release_date": "2025-05-25T10:31:29Z",
+    "duration_in_minutes": 118,
+    "age_limit": null,
+    "genres": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "cinema.room",
+  "pk": 1,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-27T18:52:49.992Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-27T18:52:49.992Z",
+    "name": "CINEMA 2",
+    "opening_time": "10:00:00",
+    "closing_time": "23:00:00"
+  }
+},
+{
+  "model": "cinema.room",
+  "pk": 2,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T20:45:06.503Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T20:45:06.503Z",
+    "name": "CINEMA 1",
+    "opening_time": "10:00:00",
+    "closing_time": "23:00:00"
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 38,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-28T17:06:43.295Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-28T17:06:43.295Z",
+    "room": 1,
+    "row": "A",
+    "number": 1
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 39,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-28T17:06:44.418Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-28T17:06:44.418Z",
+    "room": 1,
+    "row": "A",
+    "number": 2
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 40,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-28T17:06:45.363Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-28T17:06:45.363Z",
+    "room": 1,
+    "row": "A",
+    "number": 3
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 41,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-28T17:06:46.248Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-28T17:06:46.248Z",
+    "room": 1,
+    "row": "A",
+    "number": 4
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 42,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-28T17:06:46.999Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-28T17:06:46.999Z",
+    "room": 1,
+    "row": "B",
+    "number": 1
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 43,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-28T17:06:47.818Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-28T17:06:47.818Z",
+    "room": 1,
+    "row": "B",
+    "number": 2
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 44,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-28T17:06:48.712Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-28T17:06:48.712Z",
+    "room": 1,
+    "row": "B",
+    "number": 3
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 45,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-29T17:03:03.521Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-29T17:03:03.521Z",
+    "room": 1,
+    "row": "B",
+    "number": 4
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 46,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:39.407Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:39.407Z",
+    "room": 2,
+    "row": "A",
+    "number": 1
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 47,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:43.288Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:43.288Z",
+    "room": 2,
+    "row": "A",
+    "number": 2
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 48,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:44.193Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:44.193Z",
+    "room": 2,
+    "row": "A",
+    "number": 3
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 49,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:44.945Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:44.945Z",
+    "room": 2,
+    "row": "A",
+    "number": 4
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 50,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:45.553Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:45.553Z",
+    "room": 2,
+    "row": "B",
+    "number": 1
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 51,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:46.540Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:46.541Z",
+    "room": 2,
+    "row": "B",
+    "number": 2
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 52,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:47.313Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:47.313Z",
+    "room": 2,
+    "row": "B",
+    "number": 3
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 53,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:48.253Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:48.253Z",
+    "room": 2,
+    "row": "B",
+    "number": 4
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 54,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:48.918Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:48.918Z",
+    "room": 2,
+    "row": "C",
+    "number": 1
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 55,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:49.819Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:49.819Z",
+    "room": 2,
+    "row": "C",
+    "number": 2
+  }
+},
+{
+  "model": "cinema.seat",
+  "pk": 57,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-05-30T23:34:53.081Z",
+    "changed_by": 2,
+    "changed_on": "2025-05-30T23:34:53.081Z",
+    "room": 2,
+    "row": "C",
+    "number": 3
+  }
+},
+{
+  "model": "cinema.screening",
+  "pk": 9,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-06-01T12:38:54.497Z",
+    "changed_by": 2,
+    "changed_on": "2025-06-01T12:38:54.497Z",
+    "movie": 1,
+    "room": 2,
+    "start_time": "2025-06-11T14:00:00Z"
+  }
+},
+{
+  "model": "cinema.screening",
+  "pk": 10,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-06-01T12:39:16.867Z",
+    "changed_by": 2,
+    "changed_on": "2025-06-01T12:39:16.867Z",
+    "movie": 1,
+    "room": 1,
+    "start_time": "2025-06-11T14:00:00Z"
+  }
+},
+{
+  "model": "cinema.screening",
+  "pk": 11,
+  "fields": {
+    "created_by": 2,
+    "created_on": "2025-06-01T12:40:27.117Z",
+    "changed_by": 2,
+    "changed_on": "2025-06-01T12:40:27.117Z",
+    "movie": 5,
+    "room": 2,
+    "start_time": "2025-06-12T14:00:00Z"
+  }
+},
+{
+  "model": "cinema.ticket",
+  "pk": 11,
+  "fields": {
+    "screening": 9,
+    "seat": 46,
+    "user": 3,
+    "booked_at": "2025-06-01T12:40:57.017Z"
+  }
+},
+{
+  "model": "cinema.ticket",
+  "pk": 12,
+  "fields": {
+    "screening": 9,
+    "seat": 47,
+    "user": 3,
+    "booked_at": "2025-06-01T12:40:57.036Z"
+  }
+},
+{
+  "model": "cinema.ticket",
+  "pk": 13,
+  "fields": {
+    "screening": 11,
+    "seat": 46,
+    "user": 3,
+    "booked_at": "2025-06-01T12:41:09.021Z"
+  }
+}
+]

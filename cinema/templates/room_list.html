@@ -1,0 +1,33 @@
+{% extends "notification_master.html" %}
+
+{% block extended_content %}
+    <div class="container pt-2 pb-5 text-light">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <a href="{% url 'room_add' %}" class="btn btn-danger">
+              <i class="bi bi-plus-circle me-1"></i> ADD ROOM
+            </a>
+        </div>
+
+        <h2 class="text-white mb-4">ROOMS</h2>
+        <table class="table table-dark table-hover text-light" style="background-color: black;">
+            <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Opening time</th>
+                  <th scope="col">Closing time</th>
+                  <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for room in rooms %}
+                    <tr>
+                      <th scope="row"><a href="{% url 'room_display' room.id %}">{{ room.name }}</a></th>
+                      <td>{{ room.opening_time }}</td>
+                      <td>{{ room.closing_time }}</td>
+                      <td><a href="{% url 'room_edit' room.id %}">Edit</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
