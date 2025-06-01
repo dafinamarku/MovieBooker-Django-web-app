@@ -13,7 +13,7 @@
 
 ## 🛠 Technologies Used
 
-- Python 3.x  
+- Python 3.13.2  
 - Django  
 - SQLite  
 - HTML, CSS, JavaScript  
@@ -63,8 +63,8 @@ python manage.py runserver
 
 To test the app:
 - You can use users:
-	-Admin: username -> admin	password->test123
-	-Client: username -> dafina	password->test123
+	- Admin: username -> admin	password->test123
+	- Client: username -> dafina	password->test123
 
 ## 📃 License
 
