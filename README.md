@@ -13,11 +13,10 @@
 
 ## 🛠 Technologies Used
 
-- Python 3.13.2  
-- Django  
-- SQLite  
-- HTML, CSS, JavaScript  
-- Bootstrap
+- Backend: Django (Python)
+- Database: SQLite 
+- Frontend: HTML, CSS, JavaScript, Bootstrap
+- Python version: 3.13.2
 
 ## 📦 Local Setup
 
