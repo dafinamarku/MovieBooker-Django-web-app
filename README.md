@@ -69,6 +69,10 @@ To test the app:
 
 This project is intended for educational and personal use. 
 
+## 📃 References
+
+To see references see MovieBooker Documentation.pdf 
+
 ---
 
 💡 **Author:** Dafina Marku  
