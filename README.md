@@ -66,27 +66,6 @@ To test the app:
 	-Admin: username -> admin	password->test123
 	-Client: username -> dafina	password->test123
 
-## 📁 Project Structure
-
-```
-MovieBooker-Django-web-app/
-│
-├── movies/                      # Main Django app
-│   ├── models.py                # Database models
-│   ├── views.py                 # Application logic
-│   ├── forms.py                 # Forms for movie/screening/room
-│   ├── urls.py                  # App-specific routing
-│   └── ...
-│
-├── templates/                   # HTML templates
-├── static/                      # CSS, JS, images
-├── dumb_data/fixtures/          # JSON fixture for initial data
-│
-├── manage.py
-├── requirements.txt
-└── README.md
-```
-
 ## 📃 License
 
 This project is intended for educational and personal use. 
