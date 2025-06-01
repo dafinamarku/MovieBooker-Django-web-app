@@ -43,7 +43,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-5. **Load initial demo data (optional)**:
+5. **Load initial demo data**:
 ```bash
 python manage.py loaddata dumb_data/fixtures/initial_data.json
 ```
